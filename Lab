@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int p;
+    int q;
+    int r;
+    printf("Hi There!\n\n");
+    printf("Enter Your 1st Number: ");
+    scanf("%d", &p);
+    printf("Enter your 2nd number: ");
+    scanf("%d",&q);
+    printf("Enter your 3rd number: ");
+    scanf("%d",&r);
+
+    printf("\n\nAscending Order is:");
+     if (p!=q && q!=r && r!=p) printf("\n %d < %d < %d", least(p, q, r), between(p, q, r), greater(p, q, r));
+        else equal1( p, q, r);
+
+
+    printf("\n\nDescending Order is:");
+     if (p!=q && q!=r && r!=p) printf("\n %d > %d > %d", greater(p, q, r), between(p, q, r),least(p, q, r));
+        else equal2( p, q, r);
+
+
+    printf("\n\n Thank You! \n\n");
+
+    return 0;
+}
+
+int greater (int a, int b, int c)
+{
+    int result;
+        if (a>b && a>c) {result = a;}
+        else if (b>a && b>c) {result = b;}
+        else if (c>a && c>b) {result=c;}
+    return result;
+}
+
+int between (int a, int b, int c)
+{
+    int result;
+        if (a>b && a<c) {result = a;}
+        else if (a<b && a>c){result = a;}
+        else if (b>a && b<c){result = b;}
+        else if (b<a && b>c){result = b;}
+        else if (c>a && c<b){result = c;}
+        else    {result = c;}
+    return result;
+}
+
+int least (int a, int b, int c)
+{
+    int result;
+        if (a<b && a<c) {result = a;}
+        else if (b<a && b<c) {result = b;}
+        else if (c<a && c<b) {result=c;}
+    return result;
+}
+
+int equal1 (int a, int b, int c)
+{
+
+    if  (a==b && b==c) printf("\n%d = %d = %d", a, b, c);
+    else if (a==b && b>c) printf("\n %d < %d = %d", c, b, a);
+    else if (a==b && b<c) printf("\n %d = %d < %d", b, a, c);
+    else if (a==c && c>b) printf("\n %d < %d = %d", a, b, c);
+    else if (a==c && c<b) printf("\n %d = %d < %d", c, a, b);
+    else if (c==b && a<b) printf("\n %d < %d = %d", c, a, b);
+    else if (c==b && a>b) printf("\n %d = %d < %d", c, b, a);
+
+}
+
+
+int equal2 (int a, int b, int c)
+{
+
+    if  (a==b && b==c) printf("\n %d = %d = %d", a, b, c);
+    else if (a==b && b>c) printf("\n %d = %d > %d", a, b, c);
+    else if (a==b && b<c) printf("\n %d > %d = %d", c, a, b);
+    else if (a==c && c>b) printf("\n %d = %d > %d", a, c, b);
+    else if (a==c && c<b) printf("\n %d > %d = %d", b, a, c);
+    else if (c==b && a<b) printf("\n %d = %d > %d", c, b, a);
+    else if (c==b && a>b) printf("\n %d > %d = %d", a, b, c);
+
+}
